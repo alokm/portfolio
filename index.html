@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alok Mohindra — Product Manager</title>
+  <meta name="description" content="Ex-Google AI/Platform product manager and builder." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --text: #0a0a0a;
+      --muted: #6b7280;
+      --accent: #e5007a;
+      --border: #e5e5e5;
+      --radius: 3px;
+      --max-w: 740px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    nav .inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    nav .logo {
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    nav .logo span { color: var(--accent); }
+    nav .links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    nav .links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+      letter-spacing: 0.01em;
+    }
+    nav .links a:hover { color: var(--text); }
+
+    /* ── LAYOUT ── */
+    section {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    section + section { border-top: 1px solid var(--border); }
+
+    /* ── HERO ── */
+    #hero { padding-top: 96px; padding-bottom: 80px; }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    #hero h1 {
+      font-size: clamp(38px, 7vw, 60px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+      margin-bottom: 24px;
+      color: var(--text);
+    }
+    #hero h1 .accent-text { color: var(--accent); }
+
+    #hero p {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 500px;
+      margin-bottom: 40px;
+      line-height: 1.75;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 11px 22px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: 1.5px solid var(--accent);
+    }
+    .btn-primary:hover { background: #c40069; border-color: #c40069; }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border);
+    }
+    .btn-secondary:hover { border-color: var(--text); }
+
+    /* ── SECTION HEADER ── */
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 40px;
+      color: var(--text);
+    }
+
+    /* ── ABOUT ── */
+    #about p {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 16px;
+      line-height: 1.85;
+    }
+    #about p:last-of-type { margin-bottom: 0; }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 32px;
+    }
+    .skill-tag {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text);
+      background: #f5f5f5;
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: var(--radius);
+      transition: all 0.15s;
+      letter-spacing: 0.01em;
+    }
+    .skill-tag:hover {
+      background: var(--text);
+      color: #fff;
+      border-color: var(--text);
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      border: 1px solid var(--border);
+    }
+    .project-card {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 32px;
+      transition: background 0.15s;
+      position: relative;
+    }
+    .project-card:last-child { border-bottom: none; }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 3px;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+    .project-card:hover { background: #fafafa; }
+    .project-card:hover::before { opacity: 1; }
+    .project-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+    .project-name {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .project-tag {
+      flex-shrink: 0;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 3px 8px;
+      border-radius: var(--radius);
+    }
+    .project-desc {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      line-height: 1.75;
+    }
+    .project-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .metric { display: flex; flex-direction: column; gap: 3px; }
+    .metric-value {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--accent);
+    }
+    .metric-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    /* ── EXPERIENCE ── */
+    .timeline { display: flex; flex-direction: column; }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 24px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .timeline-item:last-child { border-bottom: none; }
+    .timeline-date {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      padding-top: 2px;
+      letter-spacing: 0.01em;
+    }
+    .timeline-role {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 2px;
+      color: var(--text);
+    }
+    .timeline-company {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .timeline-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* ── CONTACT ── */
+    #contact p {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      max-width: 460px;
+      line-height: 1.85;
+    }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+    .contact-link svg { flex-shrink: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 28px 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    footer p { font-size: 12px; color: var(--muted); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .timeline-item { grid-template-columns: 1fr; gap: 4px; }
+      .timeline-date { padding-top: 0; }
+      nav .links { gap: 18px; }
+      #hero { padding-top: 64px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="inner">
+      <a href="#hero" class="logo">Alok Mohindra<span>.</span></a>
+      <ul class="links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Work</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-eyebrow">Available for new opportunities</div>
+    <h1>AI/ML Platform PM.<br /><span class="accent-text">Builder since day one.</span></h1>
+    <p>10+ years taking products from 0→1 and scaling them across SaaS, AdTech, FinTech, and AI platforms. Built Google's AdWords sales platform to $40B in managed revenue. Launched AI systems that generated $4B in incremental revenue. Recently shipping hands-on AI products with LLMs, RAG, and OCR.</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary">View my work</a>
+      <a href="#contact" class="btn btn-secondary">Get in touch</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label">About</div>
+    <div class="section-title">The full picture</div>
+    <p>AI platform product leader with 10+ years building and scaling SaaS, AdTech, FinTech, and data platforms — with recent hands-on work shipping AI products including LLM tooling, RAG pipelines, OCR, and AI inference with human-in-the-loop workflows.</p>
+    <p>Known for taking products from 0→1 and scaling them across large, cross-functional organizations. I've built platforms used by tens of thousands of people, launched AI systems that moved billions in revenue, and co-founded two companies — one of which reached $12M ARR with 23 patents.</p>
+    <div class="skills">
+      <span class="skill-tag">AI / ML Platforms</span>
+      <span class="skill-tag">LLM &amp; RAG</span>
+      <span class="skill-tag">0→1 &amp; Scaling</span>
+      <span class="skill-tag">Developer Tools</span>
+      <span class="skill-tag">API Strategy</span>
+      <span class="skill-tag">Data Platforms</span>
+      <span class="skill-tag">Cross-functional Leadership</span>
+      <span class="skill-tag">GTM &amp; Change Management</span>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label">Work</div>
+    <div class="section-title">Selected projects</div>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">Google AdWords Sales Platform</div>
+          <span class="project-tag">Google · 0→1</span>
+        </div>
+        <p class="project-desc">
+          Built Google's SMB AdWords CRM and sales platform from scratch — no prior internal tooling existed at this scale. Rolled it out across 24 sales programs in three regions and onboarded 40,000 sellers without centralized support escalation, achieving the highest CSAT ever recorded for an internal Google product.
+        </p>
+        <div class="project-metrics">
+          <div class="metric">
+            <span class="metric-value">40k</span>
+            <span class="metric-label">Sellers on platform</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">$40B</span>
+            <span class="metric-label">Managed revenue</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">24</span>
+            <span class="metric-label">Sales programs</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">AI/ML Sales Platform</div>
+          <span class="project-tag">Google · AI</span>
+        </div>
+        <p class="project-desc">
+          Launched an AI/ML-powered sales system that shifted optimization from clicks to business outcomes — a fundamental rethinking of how Google's sales motion worked. The platform identified high-value opportunities, guided seller actions, and drove measurable incremental revenue at scale.
+        </p>
+        <div class="project-metrics">
+          <div class="metric">
+            <span class="metric-value">$4B</span>
+            <span class="metric-label">Incremental revenue</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">ChunkyRAG</div>
+          <span class="project-tag">Open Source · LLM</span>
+        </div>
+        <p class="project-desc">
+          Designed, prototyped, and shipped an open-source LLM developer tool for RAG pipeline optimization. Developers previously had no structured way to benchmark retrieval quality or tune chunking strategies — ChunkyRAG cut configuration time by ~50% and enabled measurable retrieval-quality benchmarking.
+        </p>
+        <div class="project-metrics">
+          <div class="metric">
+            <span class="metric-value">~50%</span>
+            <span class="metric-label">Config time reduction</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">
+              <a href="https://github.com/alokm/chunkyrag" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:0.01em;">github.com/alokm/chunkyrag ↗</a>
+            </span>
+            <span class="metric-label">&nbsp;</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label">Experience</div>
+    <div class="section-title">Where I've been</div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-date">Jun – Oct 2026</div>
+        <div class="timeline-content">
+          <div class="timeline-role">Senior Product Manager</div>
+          <div class="timeline-company">Fieldflo · Austin, TX</div>
+          <div class="timeline-desc">Transformed a legacy vertical SaaS app into an AI-native platform. Built an AI-powered onboarding flow using OCR, inference, and human-in-the-loop approvals that cut certification management from hours to minutes.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">Jan 2024 – Jun 2026</div>
+        <div class="timeline-content">
+          <div class="timeline-role">AI Product Leader</div>
+          <div class="timeline-company">HashTag Labs · Independent Consulting</div>
+          <div class="timeline-desc">Principal product advisor to AI-native startups. Shipped ChunkyRAG (open-source RAG tooling), built an AI semantic search classifier for ZestyBakers that lifted conversion 20%, and validated PMF for SocraticIQ.org.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">Jun 2022 – Nov 2023</div>
+        <div class="timeline-content">
+          <div class="timeline-role">Principal Technical Product Manager</div>
+          <div class="timeline-company">Achieve.com · San Mateo, CA</div>
+          <div class="timeline-desc">Built an API-first enterprise data platform used by 250 engineers, consolidating six business units onto one customer data platform. Raised LTV 35%, improved dev velocity 30%, and cut loan approval time 25%.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">Jun 2021 – Jun 2022</div>
+        <div class="timeline-content">
+          <div class="timeline-role">Lead Product Manager</div>
+          <div class="timeline-company">Liquality.io · New York, NY</div>
+          <div class="timeline-desc">Led a non-custodial multi-currency trading product built on trustless atomic swaps. Grew to 40k weekly active users (4×), doubled engagement, and expanded monetization 40% in two quarters.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">Dec 2019 – Jul 2021</div>
+        <div class="timeline-content">
+          <div class="timeline-role">Senior Technical Product Manager</div>
+          <div class="timeline-company">App Annie (Data.ai) · San Francisco, CA</div>
+          <div class="timeline-desc">Launched a petabyte-scale cloud data platform on Snowflake, unified 200+ APIs (raising user satisfaction 30%, reducing churn 15%), and shipped an ML-powered anomaly detection system that doubled feature adoption.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">Mar 2014 – Jul 2019</div>
+        <div class="timeline-content">
+          <div class="timeline-role">Principal Global Product Lead</div>
+          <div class="timeline-company">Google · Mountain View, CA</div>
+          <div class="timeline-desc">Built the SMB AdWords CRM and sales platform from 0→1, scaling to 40,000 sellers and $40B in managed revenue. Launched an AI/ML sales platform generating $4B in incremental revenue across 24 programs in three regions.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">2012 – 2014</div>
+        <div class="timeline-content">
+          <div class="timeline-role">Senior Product Manager</div>
+          <div class="timeline-company">TapCanvas</div>
+          <div class="timeline-desc">Employee #1 at a seed-stage no-code mobile app builder. Owned acquisition, monetization, analytics, and launch.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">2007 – 2012</div>
+        <div class="timeline-content">
+          <div class="timeline-role">Co-founder &amp; Head of Product</div>
+          <div class="timeline-company">Arkalumen</div>
+          <div class="timeline-desc">Built a smart lighting control platform from concept to market, growing it to $12M ARR with 23 patents.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label">Contact</div>
+    <div class="section-title">Let's talk</div>
+    <p>I'm always open to interesting conversations — whether that's a new role, a product challenge to think through, or just trading notes on what's happening in AI.</p>
+    <div class="contact-links">
+
+      <a href="mailto:alok.mohindra@gmail.com" class="contact-link">
+        <!-- Email icon -->
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect width="20" height="16" x="2" y="4" rx="2"/>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
+        Email me
+      </a>
+
+      <a href="https://www.linkedin.com/in/alokmohindra" target="_blank" rel="noopener" class="contact-link">
+        <!-- LinkedIn icon -->
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+          <rect width="4" height="12" x="2" y="9"/>
+          <circle cx="4" cy="4" r="2"/>
+        </svg>
+        LinkedIn
+      </a>
+
+      <a href="https://www.github.com/alokm" target="_blank" rel="noopener" class="contact-link">
+        <!-- GitHub icon -->
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+          <path d="M9 18c-4.51 2-5-2-7-2"/>
+        </svg>
+        GitHub
+      </a>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Alok Mohindra</p>
+    <p>Built with HTML & CSS</p>
+  </footer>
+
+</body>
+</html>
