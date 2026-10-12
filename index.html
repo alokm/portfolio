@@ -85,6 +85,20 @@
 
     /* ── HERO ── */
     #hero { padding-top: 96px; padding-bottom: 80px; }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-photo {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      object-position: center top;
+      border: 1px solid var(--border);
+      display: block;
+    }
 
     .hero-eyebrow {
       display: inline-flex;
@@ -506,6 +520,8 @@
       .timeline-date { padding-top: 0; }
       nav .links { gap: 18px; }
       #hero { padding-top: 64px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 28px; }
+      .hero-photo { width: 100px; height: 100px; }
     }
   </style>
 </head>
@@ -527,12 +543,17 @@
 
   <!-- HERO -->
   <section id="hero">
-    <div class="hero-eyebrow">Available for new opportunities</div>
-    <h1>AI/ML Platform PM.<br /><span class="accent-text">Builder since day one.</span></h1>
-    <p>10+ years taking products from 0→1 and scaling them across SaaS, AdTech, FinTech, and AI platforms. Built Google's AdWords sales platform to $40B in managed revenue. Launched AI systems that generated $4B in incremental revenue. Recently shipping hands-on AI products with LLMs, RAG, and OCR.</p>
-    <div class="hero-actions">
-      <a href="#projects" class="btn btn-primary">View my work</a>
-      <a href="#contact" class="btn btn-secondary">Get in touch</a>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-eyebrow">Available for new opportunities</div>
+        <h1>AI/ML Platform PM.<br /><span class="accent-text">Builder since day one.</span></h1>
+        <p>10+ years taking products from 0→1 and scaling them across SaaS, AdTech, FinTech, and AI platforms. Built Google's AdWords sales platform to $40B in managed revenue. Launched AI systems that generated $4B in incremental revenue. Recently shipping hands-on AI products with LLMs, RAG, and OCR.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View my work</a>
+          <a href="#contact" class="btn btn-secondary">Get in touch</a>
+        </div>
+      </div>
+      <img src="/headshot.jpg" alt="Alok Mohindra" class="hero-photo" />
     </div>
   </section>
 
