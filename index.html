@@ -350,6 +350,142 @@
     .contact-link:hover { border-color: var(--accent); color: var(--accent); }
     .contact-link svg { flex-shrink: 0; }
 
+    /* ── PORTFOLIO ── */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .portfolio-card {
+      border: 1px solid var(--border);
+      border-radius: calc(var(--radius) + 1px);
+      overflow: hidden;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      position: relative;
+    }
+    .portfolio-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 24px rgba(229,0,122,0.08);
+    }
+    .portfolio-card-preview {
+      height: 160px;
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .portfolio-card-preview::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: -10%;
+      width: 50%;
+      height: 200%;
+      background: radial-gradient(ellipse, rgba(96,165,250,0.25) 0%, transparent 70%);
+    }
+    .portfolio-card-preview::after {
+      content: '';
+      position: absolute;
+      bottom: -40%;
+      right: -10%;
+      width: 50%;
+      height: 200%;
+      background: radial-gradient(ellipse, rgba(168,85,247,0.2) 0%, transparent 70%);
+    }
+    .portfolio-preview-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 1;
+    }
+    .portfolio-preview-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .portfolio-preview-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.03em;
+    }
+    .portfolio-card-body {
+      padding: 24px 28px 28px;
+    }
+    .portfolio-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+    .portfolio-card-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #16a34a;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      padding: 3px 8px;
+      border-radius: var(--radius);
+      flex-shrink: 0;
+    }
+    .live-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: #16a34a;
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .portfolio-card-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+    .portfolio-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 24px;
+    }
+    .tech-tag {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      background: #f5f5f5;
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: var(--radius);
+      letter-spacing: 0.02em;
+    }
+    .portfolio-card-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
     /* ── FOOTER ── */
     footer {
       max-width: var(--max-w);
@@ -382,6 +518,7 @@
       <ul class="links">
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Work</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -515,6 +652,61 @@
           <div class="metric">
             <span class="metric-value">25%</span>
             <span class="metric-label">Faster loan approval</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="section-label">Portfolio</div>
+    <div class="section-title">Live projects</div>
+    <div class="portfolio-grid">
+
+      <div class="portfolio-card">
+        <div class="portfolio-card-preview">
+          <div class="portfolio-preview-logo">
+            <div class="portfolio-preview-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/>
+                <path d="M7 7h.01"/>
+              </svg>
+            </div>
+            <span class="portfolio-preview-name">ChunkyRAG</span>
+          </div>
+        </div>
+        <div class="portfolio-card-body">
+          <div class="portfolio-card-header">
+            <div class="portfolio-card-title">ChunkyRAG</div>
+            <span class="live-badge">Live</span>
+          </div>
+          <p class="portfolio-card-desc">
+            An open-source tool that automatically evaluates and compares RAG chunking strategies so you can find the optimal one for your documents — without the trial-and-error. Upload a document, run a benchmark, and see which chunking approach gives your retrieval pipeline the best results.
+          </p>
+          <div class="portfolio-tech">
+            <span class="tech-tag">Next.js</span>
+            <span class="tech-tag">FastAPI</span>
+            <span class="tech-tag">RAG</span>
+            <span class="tech-tag">LLM Eval</span>
+            <span class="tech-tag">Google Cloud Run</span>
+            <span class="tech-tag">Open Source</span>
+          </div>
+          <div class="portfolio-card-actions">
+            <a href="https://chunkyrag.alokmohindra.com" target="_blank" rel="noopener" class="btn btn-primary">
+              Launch app
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
+              </svg>
+            </a>
+            <a href="https://github.com/alokm/chunkyrag" target="_blank" rel="noopener" class="btn btn-secondary">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                <path d="M9 18c-4.51 2-5-2-7-2"/>
+              </svg>
+              View source
+            </a>
           </div>
         </div>
       </div>
